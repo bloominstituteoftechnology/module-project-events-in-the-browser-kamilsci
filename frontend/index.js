@@ -78,9 +78,39 @@ function moduleProject2() {
 
   document.addEventListener('keydown', evt => {
     // 👉 TASK 3 - Use the arrow keys to highlight a new square 👈
-  
+
+    let isUp = evt.key === keys.up
+    let isDown = evt.key === keys.down
+    let isLeft = evt.key === keys.left
+    let isRight = evt.key === keys.right
 
 
+    let targetd = document.querySelector('.targeted')
+
+    if (isUp) {
+      if (targetd.parentElement.previousElementSibling) {
+        let idx = Array.from(targetd.parentElement.children).indexOf(targetd)
+        targetd.classList.remove('targeted')
+        targetd.parentElement.previousElementSibling.children[idx].classList.add('targeted')
+      }
+    } else if (isDown) {
+      if (targetd.parentElement.nextElementSibling) {
+        let idx = Array.from(targetd.parentElement.children).indexOf(targetd)
+        targetd.classList.remove('targeted')
+        targetd.parentElement.nextElementSibling.children[idx].classList.add('targeted')
+      }
+    } else if (isLeft) {
+      if (targetd.previousElementSibling) {
+        targetd.classList.remove('targeted')
+        targetd.previousElementSibling.classList.add('targeted')
+      }
+    } else if (isRight) {
+      console.log('you clicked right')
+      if (targetd.nextElementSibling) {
+        targetd.classList.remove('targeted')
+        targetd.nextElementSibling.classList.add('targeted')
+      }
+    }
     // 👉 TASK 4 - Use the space bar to exterminate a mosquito 👈
 
     // 👉 TASK 5 - End the game 👈
