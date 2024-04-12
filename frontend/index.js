@@ -83,6 +83,7 @@ function moduleProject2() {
     let isDown = evt.key === keys.down
     let isLeft = evt.key === keys.left
     let isRight = evt.key === keys.right
+    let spcBar = evt.key === keys.space
 
 
     let targetd = document.querySelector('.targeted')
@@ -112,6 +113,18 @@ function moduleProject2() {
       }
     }
     // 👉 TASK 4 - Use the space bar to exterminate a mosquito 👈
+    else if (spcBar) {
+      let mosquito = targetd.firstChild
+      
+     
+      if (mosquito && mosquito && mosquito.dataset.status === 'alive'){
+        console.log('ewww')
+        mosquito.dataset.status = 'dead'
+        mosquito.parentElement.style.backgroundColor = 'red'
+      }
+    }
+
+  
 
     // 👉 TASK 5 - End the game 👈
   })
